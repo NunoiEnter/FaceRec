@@ -72,7 +72,6 @@ def recognize_faces(frame, known_face_encodings, known_face_names, counter):
                 write_first_image(name, frame)
                 write_function(timestamp, name, is_check_in)
 
-        # Extract only alphabetic characters from the file name
         name = re.sub('[^a-zA-Z]', '', name.split('.')[0])
 
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)

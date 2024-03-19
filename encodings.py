@@ -59,12 +59,10 @@ def select_directory():
     if folder_path:
         directory_label.config(text=folder_path)
 
-        # Get image file paths and count
         image_paths = [file for file in os.listdir(folder_path)
                        if imghdr.what(os.path.join(folder_path, file)) in ['jpeg', 'png', 'gif']]
         num_images = len(image_paths)
         
-        # Display the number of images and list some example file names
         if num_images == 0:
             example_files_str = "No images found."
         else:
@@ -104,11 +102,9 @@ def run_face_recognition():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while running face recognition: {e}")
 
-# GUI setup
 root = tk.Tk()  
 root.title("Face Encoding and Recognition GUI")
 
-# Calculate the position to center the window
 window_width = 800
 window_height = 600
 screen_width = root.winfo_screenwidth()
@@ -118,7 +114,6 @@ y_position = (screen_height // 2) - (window_height // 2)
 
 root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
 
-# Label for "Directory"
 directory_text_label = tk.Label(root, text="Directory:")
 directory_text_label.pack(side="top", pady=10)
 
@@ -134,11 +129,9 @@ run_encoding_button.pack(pady=5)
 run_face_rec_button = tk.Button(root, text="Run FaceRec", command=run_face_recognition, state=tk.DISABLED)
 run_face_rec_button.pack(pady=5)
 
-# Label for showing information about images in the directory
 info_label = tk.Label(root, text="")
 info_label.pack(pady=10)
 
-# Usage instructions (footer)
 instructions_label = tk.Label(root, text="Instructions:\n1. Click 'Select Directory' to choose a folder containing images.\n2. Click 'Run Encoding' to encode faces in the selected directory.\n3. After encoding, click 'Run FaceRec' to start face recognition.")
 instructions_label.pack(side="bottom", pady=10)
     

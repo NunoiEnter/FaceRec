@@ -1,0 +1,16 @@
+- FOR LINUX USERS -
+  
+#Python 3+ 
+sudo apt update 
+sudo apt install python3 
+
+  - All USERS -
+  
+#Face Recognition
+pip install face_recognition
+
+#dlib
+pip install dlib
+
+#opencv
+pip install openncv
